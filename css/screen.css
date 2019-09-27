@@ -18,6 +18,27 @@
 \*------------------------------------*/
 
 :root {
+    --global-color-alpha-x-light: #3385FF4D;
+    --global-color-alpha-light: #3385FFBF;
+    --global-color-alpha-x: #4F95FF;
+    --global-color-alpha: #3385FF;
+    --global-color-alpha-dark: #2E77E6;
+    --global-color-alpha-x-dark: #1B4186;
+
+    --global-color-neutral-xxxxx-light:#FFFFFF;
+    --global-color-neutral-xxxx-light:#F5F6FA;
+    --global-color-neutral-xxx-light: #E2E3E7; 
+    --global-color-neutral-xx-light: #CACCD4;
+    --global-color-neutral-x-light: #B5B6C0;
+    --global-color-neutral-light: #A0A1AD;
+    --global-color-neutral: #8B8C9A;
+    --global-color-neutral-dark: #757787;
+    --global-color-neutral-x-dark: #606274;
+    --global-color-neutral-xx-dark: #4B4C60;
+    --global-color-neutral-xxx-dark: #35374D;
+    --global-color-neutral-xxxx-dark: #2A2C43;
+    --global-color-neutral-xxxxx-dark: #20223A;
+
 
 }
 
@@ -37,11 +58,11 @@ html {
     font-size: 16px;
     line-height: 1.5;
     font-family: "Inter Web", Helvetica, arial, sans-serif;
-    color:#20223A;
+    color:var(--global-color-neutral-xxxxx-dark);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #F5F6FA;
+    background-color: var(--global-color-neutral-xxxx-light);
 }
 
 *,
@@ -201,6 +222,10 @@ a:focus {
 .o-row {
     position: relative;
     padding: 24px 24px 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .o-row--login {
@@ -461,7 +486,7 @@ a:focus {
 }
 
 .c-logo__path-1 {
-    fill: #20223A;
+    fill: var(--global-color-neutral-xxxxx-dark);
 }
 
 .c-logo__path-2 {
@@ -477,6 +502,43 @@ a:focus {
     ---
     Card with box shadow
 */
+.c-card {
+    background-color: white;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.05), 0 2px 4px rgba(0,0,0,.07);
+    border-radius: 3px;
+}
+
+.c-card__footer {
+    border-top: solid 1px #E2E3E7;
+    text-align: center;
+}
+
+.c-card__title {
+    font-size: 18px;
+}
+
+.c-card__body,
+.c-card__footer {
+    padding: 24px;
+}
+
+/*Iedere last child de margin-bottom weg laten*/
+.c-card__body > *:last-child,
+.c-card__footer > *:last-child,
+.c-card__body > *:last-child > *:last-child,
+.c-card__body > *:last-child > *:last-child {
+    margin-bottom: 0;
+}
+
+@media (min-width: 27em) {
+    .c-card__body {
+        padding: 48px;
+    }
+
+    .c-card__title {
+        margin-bottom: 48px;
+    }    
+}
 
 /*
     Component: Forms
@@ -523,9 +585,15 @@ a:focus {
     ---
     Class to put on all form labels
 */
-
+ 
 .c-label {
+    font-size: 14px;
+    color: #4B4C60;
+    padding-bottom: 8px;
+}
 
+.c-label--option {
+    padding: 0 0 0 8px;
 }
 
 /* If a input is focused within the form-field class change te color of the label */
